@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8"> 
+    <style>
+    body { 
+        position: relative;
+        margin: 0;
+        overflow: hidden;
+    }
+    .action {
+        font-family: Arial;
+        font-size: 14px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 125px;
+    }
+    .action>li {
+        padding: 4px;
+        cursor: pointer;
+        border-bottom: 1px solid #ccc;
+    }
+    .action>li:hover {
+        background-color: #40B1ED;
+    }
+    .template {
+        display: none;
+        position: absolute;
+        border: 2px solid #444;
+        background-color: white;
+        box-shadow: 0 0 16px black;
+    }
+    #login {
+        padding: 15px;
+    }
+    #login>button {
+        float: right;
+    }
+    #topbar {
+        width: 100%;
+        height: 32px;
+        top: 0;
+        left: 0;
+        position: absolute;
+        color: white;
+        font-family: Arial, sans-serif;
+        display: none;
+    }   
+    #resources {
+        float: right;
+        margin-right: 10px;
+    }
+    #resources>span, #income>span {
+        color: yellow;
+    }
+    </style>
+</head>
+<body oncontextmenu="return false;">
+    <div id='topbar'>
+        <button id='nextunit'>next unit(1)</button>
+        <button id='endturn'>end turn</button>
+        <div id='resources'>
+            water <span id='water'>0</span> | 
+            rock <span id='rock'>0</span> |
+            fire <span id='fire'>0</span> |
+            air <span id='air'>0</span>
+        </div>
+    </div>
+    <canvas width=800 height=600></canvas>
+    <div class='template' id='unit'>
+        <ul class='action'>
+        </ul>
+    </div>
+    <div class='template' id='city'>
+        <div id='income'>
+            W:<span id='city-water'>0</span>|
+            R:<span id='city-rock'>0</span>|
+            F:<span id='city-fire'>0</span>|
+            A:<span id='city-air'>0</span>
+        </div>
+        <ul class='action'>
+            <li>upgrade palace</li>
+            <li>upgrade quarry</li>
+            <li>upgrade aquaduct</li>
+            <li>upgrade forge</li>
+            <li>upgrade mill</li>
+            <li>produce unit</li>
+        </ul>
+    </div>
+    <div class='template' id='produce'>
+        <ul class='action'>
+            <li>scout</li>
+            <li>soldier</li>
+            <li>mounted soldier</li>
+            <li>settler</li>
+        </ul>
+    </div> 
+    <div class='template modal' id='login'>
+        Name: <input type='text' placeholder='your name' id='name'></input><br/>
+        <button id='loginbutton'>play!</button>
+    </div>
+    <script src='js/main.js'></script>
+</body>
+</html>
